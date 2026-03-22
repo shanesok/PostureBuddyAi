@@ -1,0 +1,14 @@
+# PostureBuddy Dependencies
+
+# Computer Vision
+opencv-python>=4.8.0
+mediapipe>=0.10.0
+numpy>=1.24.0
+
+# Machine Learning
+pandas>=2.0.0
+scikit-learn>=1.3.0  # Optional: for more advanced ML algorithms
+
+# Jupyter support (for development/tutorials)
+ipython>=8.0.0
+matplotlib>=3.7.0
