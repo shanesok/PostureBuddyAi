@@ -1,109 +1,107 @@
-# 🧠 Posture Detection System (PostureBuddy)
+#  PostureBuddy: Real-Time Posture Detection with Computer Vision
 
-A real-time computer vision system that detects and classifies human posture using body landmarks from a webcam feed. This project combines data collection, machine learning, and live inference into a complete end-to-end pipeline.
-
-## 🚀 Overview
-
-Poor posture is a common issue among students and professionals working long hours at a desk. This project aims to provide a lightweight, real-time solution that:
-
-- Tracks human body posture using computer vision
-- Classifies posture into categories (e.g., good, bad, neutral)
-- Runs live predictions from webcam input
-
-The system is built using Python and leverages pose estimation to extract meaningful features for classification.
+An end-to-end machine learning system that detects and classifies human posture in real time using pose estimation and lightweight classification.
 
 ---
 
-## 🧩 Project Structure
-posture-detection/
-│
-├── DataCollection/ # Collect labeled posture data
-├── Posture_detector/ # Train model + real-time detection
-├── datasets/ # Saved posture landmark data
-└── README.md
+##  Motivation
+
+Prolonged poor posture is a widespread issue among students and professionals, often leading to long-term health problems. I built this project to explore how computer vision and machine learning can be used to create a practical, real-time system that encourages better habits.
+
+Beyond the application itself, this project is an exploration of how raw visual data can be transformed into meaningful, actionable insights through a complete ML pipeline.
 
 ---
 
-## ⚙️ How It Works
+##  System Overview
 
-### 1. Data Collection
-- Uses webcam + pose estimation
-- Captures body landmarks (keypoints)
-- Labels data manually using keyboard input:
-  - `G` → Good posture
-  - `B` → Bad posture
-  - `N` → Neutral posture
+This project implements a full pipeline:
 
-### 2. Feature Engineering
-- Extracts pose landmark coordinates
-- Normalizes and structures them into CSV datasets
+**Data → Features → Model → Real-Time Inference**
 
-### 3. Model Training
-- Uses:
-  - `StandardScaler` for normalization
-  - `KNeighborsClassifier` for classification
-- Splits dataset into training and testing sets
-
-### 4. Real-Time Prediction
-- Live webcam feed
-- Extracts pose landmarks in real-time
-- Applies trained model to classify posture instantly
+* Capture human pose data from webcam input
+* Convert body landmarks into structured numerical features
+* Train a machine learning model on labeled posture data
+* Perform live posture classification in real time
 
 ---
 
-## 🧠 Tech Stack
+##  Methodology
 
-- Python
-- OpenCV
-- MediaPipe (pose estimation)
-- NumPy / Pandas
-- Scikit-learn
+### Data Collection
 
----
+* Custom-built data collection pipeline using webcam input
+* Pose landmarks extracted using MediaPipe
+* Manual labeling system:
 
-## 📊 Results & Performance
+  * G → Good posture
+  * B → Bad posture
+  * N → Neutral posture
 
-This project demonstrates a functional ML pipeline from raw data to deployment.
+### Feature Representation
 
-Key strengths:
-- Real-time inference
-- End-to-end system (data → model → live prediction)
-- Lightweight and runs locally
+* Uses body landmark coordinates as feature vectors
+* Structures data into CSV format for reproducibility
 
-Limitations:
-- Accuracy depends on lighting and camera angle
-- Dataset is user-specific (generalization can be improved)
+### Model
 
----
+* Standardization with `StandardScaler`
+* Classification using `KNeighborsClassifier`
+* Train/test split for basic evaluation
 
-## 🎯 Future Improvements
+### Real-Time Inference
 
-- Improve model accuracy with larger dataset
-- Use deep learning (e.g., LSTM or CNN for pose sequences)
-- Add posture correction alerts
-- Deploy as desktop/mobile app
+* Continuous webcam input
+* Real-time pose extraction and classification
+* Lightweight pipeline suitable for local execution
 
 ---
 
-## 💡 Why This Project Matters
+##  Design Choices
 
-This project is not just a model — it is a **complete machine learning system** that includes:
-
-- Data engineering
-- Model training
-- Real-time deployment
-
-It reflects practical understanding of how AI systems are built and used in real-world applications.
+* **KNN over deep learning**: chosen for interpretability and fast iteration on small datasets
+* **Landmark-based features**: reduces dimensionality compared to raw images
+* **Modular pipeline**: separates data collection, training, and inference
 
 ---
 
-## 👤 Author
+##  Evaluation & Limitations
 
-Shane Sok  
-High school student passionate about AI, computer vision, and real-world applications of machine learning.
+This system demonstrates a working real-time ML application, but also highlights key challenges:
+
+* Performance varies with lighting conditions and camera positioning
+* Dataset is relatively small and user-specific
+* Temporal information (motion over time) is not yet utilized
 
 ---
 
-## 📌 Notes
+##  Future Directions
 
-This project was built independently as part of my exploration into applied AI systems and human-centered technology.
+* Incorporate temporal models (e.g., LSTM for posture sequences)
+* Expand dataset across multiple users for generalization
+* Introduce feedback mechanisms (alerts or scoring system)
+* Explore deployment as a lightweight desktop or mobile application
+
+---
+
+##  What This Project Demonstrates
+
+This project reflects an understanding of:
+
+* Building end-to-end machine learning systems
+* Translating raw sensor data into structured features
+* Making design trade-offs between simplicity and performance
+* Deploying models in real-time environments
+
+---
+
+##  Author
+
+Shane Sok
+High school student exploring artificial intelligence, with a focus on computer vision and real-world systems.
+
+---
+
+##  Additional Notes
+
+This project was developed independently as part of my interest in applied AI and human-centered technology.
+
